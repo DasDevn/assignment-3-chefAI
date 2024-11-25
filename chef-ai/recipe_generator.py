@@ -1,6 +1,9 @@
 from flask import Flask, request, render_template
 from transformers import pipeline
 
+
+#CITE https://huggingface.co/pratultandon/recipe-nlg-gpt2-train11_15
+
 # Initialize Flask app
 app = Flask(__name__)
 
