@@ -3,7 +3,7 @@ from transformers import pipeline
 
 
 #CITE https://huggingface.co/pratultandon/recipe-nlg-gpt2-train11_15
-
+#CITE #CITE https://github.com/mbtrum/python-planet-earth
 # Initialize Flask app
 app = Flask(__name__)
 
