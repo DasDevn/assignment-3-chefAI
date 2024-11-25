@@ -32,15 +32,33 @@ button {
 }
 
 .container {
-    position: absolute; 
-    right: 0; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    width: 50%; 
-    max-width: 400px; 
-    text-align: left; 
-    display: flex;
-    flex-direction: column;
-    gap: 10px; 
-    padding-right: 250px; 
+  position: absolute; 
+  right: 15%;
+  top: 50%; 
+  transform: translateY(-50%); 
+  width: 80%;
+  max-width: 400px; 
+  text-align: left; 
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
+  padding-right: 20px; 
+}
+
+
+@media (max-width: 768px) {
+  .container {
+      right: 5%; 
+      width: 90%; 
+      padding-right: 10px; 
+  }
+
+  form {
+      gap: 10px;
+  }
+
+  button {
+    width: 130px;
+      height: auto; 
+  }
 }
