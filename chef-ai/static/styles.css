@@ -6,6 +6,7 @@ body, html {
 
 body {
     font-family:Arial, Helvetica, sans-serif;
+    color: black;
   
     /* The image used */
     background-image: url("/static/cookingbackground.jpg");
@@ -14,26 +15,24 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  
-    color: white;
   }
 
   form {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    gap: 15px; /* Add space between elements */
+    flex-direction: column; 
+    gap: 15px; 
 }
 
   .container {
-    position: absolute; /* Use absolute positioning */
-    right: 0; /* Align the container to the right */
-    top: 50%; /* Center vertically */
-    transform: translateY(-50%); /* Adjust for vertical centering */
-    width: 50%; /* Restrict width to half the screen */
-    max-width: 400px; /* Optional: limit the width of the content */
-    text-align: left; /* Align text inside the container to the left */
+    position: absolute; 
+    right: 0; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    width: 50%; 
+    max-width: 400px; 
+    text-align: left; 
     display: flex;
     flex-direction: column;
     gap: 10px; 
-    padding-right: 300px; /* Add padding from the edge */
+    padding-right: 300px; 
 }
