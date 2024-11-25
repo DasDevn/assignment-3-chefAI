@@ -1,43 +1,21 @@
 from flask import Flask, request, render_template
 from transformers import pipeline
 
+# Initialize Flask app
 app = Flask(__name__)
 
-qa_model = pipeline("question-answering","distilbert/distilbert-base-cased-distilled-squad")
+# Initialize the recipe generation model
+pipe = pipeline("text-generation", model="pratultandon/recipe-nlg-gpt2-train11_15")
 
 @app.route("/", methods=["GET", "POST"])
 def home():
-  if request.method =="GET":
-    return render_template("home.html")
-  else:
-    # get context from the file
-    f = open("earth_context.txt", "r")
-    context = f.read()
+    if request.method == "GET":
+        return render_template("home.html")
+    else:
+        ingredients = request.form["ingredients"]  
+        prompt = f"Recipe with {ingredients}:"
+        result = pipe(prompt, max_length=200, num_return_sequences=1)
+        recipe = result[0]["generated_text"]
 
-    # get form input 'question'
-    question = request.form["question"]
-
-    # get answer from pipeline model
-    answer = qa_model(question = question, context = context)
-
-    return render_template("home.html", question = question, answer = answer["answer"])
-
-
-
-
-
-
-@app.route("/helloworld")
-def hello_world():
-  name = "Mike"
-  title = "Hello World!"
-  message = "Welcome to my first Flask app"
-  return render_template("hello.html", title = title, message = message, person = name)
-
-@app.route("/get", methods=["GET"])
-def get_request():
-  return "GET request"
-
-@app.route("/post", methods=["POST"])
-def post_request():
-  return "POST request"
+        
+        return render_template("home.html", recipe=recipe)
